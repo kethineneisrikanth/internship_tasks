@@ -1,0 +1,181 @@
+ Q1. Find the Frequency of Each Word in a Sentence
+def word_frequency(sentence):
+    result = {}
+    for word in sentence.split():
+        if word in result:
+            result[word] += 1
+        else:
+            result[word] = 1
+    return result
+#Logic:
+#1. Create an empty dictionary.
+#2. Split the sentence into words.
+#3. If the word already exists, increase its count by 1.
+#4. Otherwise, add the word with count 1.
+#5. Return the dictionary.
+
+
+# Q2. Find the Frequency of Each Character in a Word
+
+def character_frequency(word):
+    result = {}
+
+    for ch in word:
+        if ch in result:
+            result[ch] = result[ch] + 1
+        else:
+            result[ch] = 1
+
+    return result
+
+# Q3. Find the First Non-Repeating Character in a Word
+
+def first_non_repeating(word):
+    for ch in word:
+        if word.count(ch) == 1:
+            return ch
+
+    return None
+
+# Q4. Check Whether Two Strings Are Anagrams
+
+def are_anagrams(s1, s2):
+    if len(s1) != len(s2):
+        return False
+
+    for ch in s1:
+        if s1.count(ch) != s2.count(ch):
+            return False
+
+    return True
+
+# Q5. Find the First Repeating Character in a String
+def first_repeating_character(word):
+    seen = ""
+
+    for ch in word:
+        if ch in seen:
+            return ch
+        seen = seen + ch
+
+    return None
+
+
+
+
+
+
+# Q6. Move All Zeros to the End of a List
+def move_zeros(nums):
+    result = []
+    zero_count = 0
+
+    for num in nums:
+        if num == 0:
+            zero_count = zero_count + 1
+        else:
+            result.append(num)
+    for i in range(zero_count):
+        result.append(0)
+    return result
+
+
+# Q7. Find the Second Highest Distinct Number
+def second_highest(nums):
+    unique_nums = []
+    for num in nums:
+        if num not in unique_nums:
+            unique_nums.append(num)
+    if len(unique_nums) < 2:
+        return None
+    unique_nums.sort()
+    return unique_nums[-2]
+ #Q8. Remove Duplicates Without Changing Original Order
+def remove_duplicates(nums):
+    result = []
+    for num in nums:
+        if num not in result:
+            result.append(num)
+    return result
+# Q9. Find the Missing Number from 1 to N
+def missing_number(nums, n):
+    total = n * (n + 1) // 2
+    actual_sum = 0
+    for num in nums:
+        actual_sum = actual_sum + num
+    return total - actual_sum
+
+# Q10. Find Two Numbers Whose Sum Equals a Target
+def two_sum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [nums[i], nums[j]]
+
+    return []
+
+
+# Q11. Find the Number Closest to Zero
+def closest_to_zero(nums):
+    if len(nums) == 0:
+        return None
+
+    result = nums[0]
+
+    for num in nums:
+        if abs(num) < abs(result):
+            result = num
+        elif abs(num) == abs(result) and num > result:
+            result = num
+
+    return result
+
+#Q12. Find Common Elements Between Two Lists
+def common_elements(list1, list2):
+    result = []
+
+    for num in list1:
+        if num in list2 and num not in result:
+            result.append(num)
+
+    return result
+
+
+# Q13. Rotate a List to the Right by K Positions
+def rotate_right(nums, k):
+    if len(nums) == 0:
+        return []
+
+    k = k % len(nums)
+
+    result = nums[-k:] + nums[:-k] if k != 0 else nums[:]
+
+    return result
+
+# Q14. Find Maximum Sum of Two Consecutive Elements
+def max_consecutive_sum(nums):
+    maximum = nums[0] + nums[1]
+
+    for i in range(1, len(nums) - 1):
+        current_sum = nums[i] + nums[i + 1]
+
+        if current_sum > maximum:
+            maximum = current_sum
+
+    return maximum
+
+
+# Q15. Find All Unique Pairs Whose Sum Equals a Target
+def all_pairs(nums, target):
+    result = []
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                pair = sorted([nums[i], nums[j]])
+                if pair not in result:
+                    result.append(pair)
+    result.sort()
+    return result
+
+
+
