@@ -1,0 +1,180 @@
+# Q1. Find the Shortest Word in a Sentence
+n="Python makes coding easy"
+words = n.split()
+shortest = words[0]
+for word in words:
+    if len(word)<len(shortest):
+      shortest=word
+print(shortest)
+
+#Q2. Find the Largest Number in a List
+lst=[12, 45, 7, 89, 23]
+largest=lst[0]
+for num in lst:
+    if num > largest:
+      largest=num
+print(largest)
+
+#Q3. Find the smallest number in the list
+lst=[12,45,7,89,23]
+smallest=lst[0]
+for num in lst:
+  if num < smallest:
+    smallest=num
+print(smallest)
+
+#Q4. Find the First Longest Word When Ties Occur
+sentence="Python makes coding useful"
+words=sentence.split()
+longest=words[0]
+for word in words:
+  if len(word) > len(longest):
+    longest = words
+print(longest)
+
+#Q5. Find the Word with the Maximum Number of Characters
+text="Data engineering requires problem solving"
+words = text.split()
+Maximum = words[0]
+for word in words:
+  if len(words) > len(Maximum):
+    Maximum = word
+print(Maximum)
+
+#Q6.Count Vowels in a String
+text = "Education"
+vowels= "AEIOUaeiou"
+count=0
+for char  in text:
+  if char in vowels:
+    count += 1
+print(count)
+
+# Q7. Count Consonants in a String
+text="Python 123!"
+consonants = "bcdfghjklmnpqrstvwxyz"
+count=0
+for char  in text.lower():
+  if char in consonants:
+    count += 1
+print(count)
+
+#8 Q8. Find the Most Frequent Character
+word="banana"
+for char in word:
+    count = 0
+    for ch in word:
+        if char == ch:
+           count +=1
+print(char)
+
+# Q9. Find the Least Frequent Character
+word = "success"
+for char in word:
+    count = 0
+    for ch in word:
+        if char == ch:
+            count += 1
+    if count == 1:
+        print(char)
+        break
+
+#Q10. Find All Characters Appearing More Than Once
+word = "programming"
+t = []
+for char in word:
+    if word.count(char) > 1 and char not in t:
+        t.append(char)
+print(t)
+
+#Q11. Create a Dictionary of Words and Their First Characters
+text = "python data engineering"
+words = text.split()
+r = {}
+for word in words:
+    r[word] = word[0]
+print(r)
+
+#Q12. Create a Dictionary of Words and Their last Characters
+text = "python data engineering"
+words = text.split()
+r = {}
+for word in words:
+    r[word] = word[-1]
+print(r)
+
+# Q13. Create a Dictionary of Words and Their Uppercase Versions
+n = "data science python"
+words = n.split()
+m = {}
+for word in words:
+    m[word] = word.upper()
+print(m)
+
+#Q14. Create a Dictionary of Numbers and Their Squares
+n = [2, 3, 4, 5]
+o = {}
+for m in n:
+  o[m]=m**2
+print(o)
+
+#Q15. creat a Dictionary of Numbers and Their Even/Odd Status
+b = [1, 2, 3, 4, 5]
+o ={}
+for m in b:
+    if m % 2 == 0:
+        o[m] = "Even"
+    else:
+        o[m] = "Odd"
+print(o)
+
+#Q16. Find the Most Frequent Word in a Sentence
+v = "Python is easy and python powerful"
+words = v.lower().split()
+for word in words:
+    if words.count(word) > 1:
+        print(word)
+        break
+
+#Q17. Find All Words Appearing More Than Once
+v = "data science uses data and science tools"
+words = v.lower().split()
+for word in words:
+    if words.count(word) > 1:
+        print(word)
+
+#Q18. Find the First Word That Appears Only Once
+v = "apple banana apple mango banana orange"
+v = "apple banana apple mango banana orange"
+words = v.lower().split()
+for word in words:
+    if words.count(word) == 1:
+        print(word)
+        break
+
+# Q19. Count Words Whose Length Is Greater Than 4
+v = "Python makes problem solving interesting"
+words = v.split()
+count = 0
+for word in words:
+    if len(word) > 4:
+        count += 1
+print(count)
+
+#Q20. Find the Longest Word That Appears Only Once
+def longest_unique_word(sentence):
+    words = sentence.lower().split()
+    frequency = {}
+    for word in words:
+        if word in frequency:
+            frequency[word] += 1
+        else:
+            frequency[word] = 1
+    longest = ""
+    for word in words:
+        if frequency[word] == 1:
+            if len(word) > len(longest):
+                longest = word
+    return longest
+sentence = "Python makes coding useful Python"
+print(longest_unique_word(sentence))
